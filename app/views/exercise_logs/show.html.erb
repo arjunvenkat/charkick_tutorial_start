@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Exercise Log #<%= @exercise_log.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Category</dt>
+      <dd><%= @exercise_log.category %></dd>
+
+      <dt>Duration</dt>
+      <dd><%= @exercise_log.duration %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/exercise_logs" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/exercise_logs/<%= @exercise_log.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_exercise_log/<%= @exercise_log.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @exercise_log.errors.any? %>
+  <% @exercise_log.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Exercise Log</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_exercise_log" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @exercise_log.category %>">
+      </div>
+
+      <!-- Label and input for duration -->
+      <div class="form-group">
+        <label for="duration" class="control-label">
+          Duration
+        </label>
+
+        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @exercise_log.duration %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Exercise Log
+      </button>
+      or
+      <a href="/exercise_logs">Cancel</a>
+    </form>
+  </div>
+</div>
